@@ -3,6 +3,8 @@ buildscript {
         kotlinVersion = '1.2.61'
         kotlinCoroutinesVersion = '0.25.0'
 
+        lombokVerson = '1.18.2'
+
         springBootVersion = '2.0.4.RELEASE'
 
         vavrVersion = '0.9.2'
@@ -67,6 +69,11 @@ subprojects {
         implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
         implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
         implementation 'org.jetbrains.kotlin:kotlin-reflect'
+
+        // Gradle deprecated annotation processor warnings for lombok
+        // https://stackoverflow.com/questions/50202843
+        compileOnly "org.projectlombok:lombok:${lombokVerson}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVerson}"
 
         /*
          * modern libs: Reactive/Kotlin Coroutines
